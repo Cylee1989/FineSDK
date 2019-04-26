@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_dialog_cancel_blue_nor">#33b4ff</color>
+    <color name="color_dialog_cancel_white_press">#FFD6F0FF</color>
+    <color name="color_dialog_cancel_blue_press">#FF2890CC</color>
+    <color name="color_light_gray">#FF030303</color>
+    <color name="color_last_login_red">#FFEE001D</color>
+    <color name="color_dialog_light_grey">#FFF6F6F6</color>
+    <color name="text_color_black_5">#0D000000</color>
+    <color name="text_color_black_10">#19000000</color>
+    <color name="text_color_black_15">#26000000</color>
+    <color name="text_color_black_20">#33000000</color>
+    <color name="text_color_black_30">#4c000000</color>
+    <color name="text_color_black_40">#66000000</color>
+    <color name="text_color_black_50">#80000000</color>
+    <color name="text_color_black_60">#99000000</color>
+    <color name="text_color_black_70">#B3000000</color>
+    <color name="text_color_black_80">#CC000000</color>
+    <color name="text_color_black_85">#DA000000</color>
+    <color name="text_color_black_90">#E6000000</color>
+    <color name="text_color_black_100">#FF000000</color>
+</resources>

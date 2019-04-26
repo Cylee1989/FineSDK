@@ -1,0 +1,3 @@
+include ':app'
+include ':FineSDKLibrary'
+project(':FineSDKLibrary').projectDir = new File('../library/FineSDKLibrary/app')

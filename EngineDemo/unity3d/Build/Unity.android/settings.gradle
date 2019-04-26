@@ -1,1 +1,6 @@
 include ':app'
+include ':FineSDKLibrary'
+project(':FineSDKLibrary').projectDir = new File('../../../../Pack/plugins/android/library/FineSDKLibrary/app')
+
+include ':xiaomi'
+project(':xiaomi').projectDir = new File('../../../../Pack/plugins/android/xiaomi/app')
