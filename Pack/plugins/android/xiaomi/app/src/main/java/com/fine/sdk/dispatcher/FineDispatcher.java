@@ -28,7 +28,7 @@ public class FineDispatcher extends BaseSDK implements InterfaceFunc {
 
     @Override
     public void initSDK(String str) {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<String, Object>();
         map.put(FineSDKCode.Key_Action, FineSDKCode.Action_Init);
         map.put(FineSDKCode.Key_ErrCode, FineSDKCode.ErrCode_Success);
         map.put(FineSDKCode.Key_ErrMsg, "初始化成功");
@@ -40,7 +40,7 @@ public class FineDispatcher extends BaseSDK implements InterfaceFunc {
         MiCommplatform.getInstance().miLogin(gameActivity, new OnLoginProcessListener() {
             @Override
             public void finishLoginProcess(int i, MiAccountInfo miAccountInfo) {
-                Map<String, Object> map = new HashMap<>();
+                Map<String, Object> map = new HashMap<String, Object>();
                 map.put(FineSDKCode.Key_Action, FineSDKCode.Action_Login);
                 switch (i) {
                     case MiErrorCode.MI_XIAOMI_GAMECENTER_SUCCESS:
@@ -93,7 +93,7 @@ public class FineDispatcher extends BaseSDK implements InterfaceFunc {
             MiCommplatform.getInstance().miUniPay(gameActivity, miBuyInfo, new OnPayProcessListener() {
                 @Override
                 public void finishPayProcess(int i) {
-                    Map<String, Object> map = new HashMap<>();
+                    Map<String, Object> map = new HashMap<String, Object>();
                     map.put(FineSDKCode.Key_Action, FineSDKCode.Action_Pay);
                     switch (i) {
                         case MiErrorCode.MI_XIAOMI_PAYMENT_SUCCESS:
@@ -116,7 +116,7 @@ public class FineDispatcher extends BaseSDK implements InterfaceFunc {
 
     @Override
     public void logout(String str) {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<String, Object>();
         map.put(FineSDKCode.Key_Action, FineSDKCode.Action_Logout);
         map.put(FineSDKCode.Key_ErrCode, FineSDKCode.ErrCode_Success);
         map.put(FineSDKCode.Key_ErrMsg, "注销成功");

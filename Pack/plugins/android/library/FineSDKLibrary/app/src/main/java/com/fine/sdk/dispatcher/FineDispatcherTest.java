@@ -19,7 +19,7 @@ public class FineDispatcherTest extends BaseSDK {
 
     @Override
     public void initSDK(String str) {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<String, Object>();
         map.put(FineSDKCode.Key_Action, FineSDKCode.Action_Init);
         map.put(FineSDKCode.Key_ErrCode, FineSDKCode.ErrCode_Success);
         map.put(FineSDKCode.Key_ErrMsg, "初始化成功");
@@ -32,7 +32,7 @@ public class FineDispatcherTest extends BaseSDK {
         FineUI.loginUI(gameActivity, new FineUI.LoginCallBack() {
             @Override
             public void loginSuccess(int type, String param) {
-                Map<String, Object> map = new HashMap<>();
+                Map<String, Object> map = new HashMap<String, Object>();
                 map.put(FineSDKCode.Key_Action, FineSDKCode.Action_Login);
                 map.put(FineSDKCode.Key_ErrCode, FineSDKCode.ErrCode_Success);
                 map.put(FineSDKCode.Key_ErrMsg, "登录成功");
@@ -49,7 +49,7 @@ public class FineDispatcherTest extends BaseSDK {
 
             @Override
             public void paySuccess(int type, String param) {
-                Map<String, Object> map = new HashMap<>();
+                Map<String, Object> map = new HashMap<String, Object>();
                 map.put(FineSDKCode.Key_Action, FineSDKCode.Action_Pay);
                 map.put(FineSDKCode.Key_ErrCode, FineSDKCode.ErrCode_Success);
                 map.put(FineSDKCode.Key_ErrMsg, "充值成功");
@@ -60,7 +60,7 @@ public class FineDispatcherTest extends BaseSDK {
 
             @Override
             public void payFailed(int type, String param) {
-                Map<String, Object> map = new HashMap<>();
+                Map<String, Object> map = new HashMap<String, Object>();
                 map.put(FineSDKCode.Key_Action, FineSDKCode.Action_Pay);
                 map.put(FineSDKCode.Key_ErrCode, FineSDKCode.ErrCode_Failed);
                 map.put(FineSDKCode.Key_ErrMsg, "充值失败");
@@ -73,7 +73,7 @@ public class FineDispatcherTest extends BaseSDK {
 
     @Override
     public void logout(String str) {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<String, Object>();
         map.put(FineSDKCode.Key_Action, FineSDKCode.Action_Logout);
         map.put(FineSDKCode.Key_ErrCode, FineSDKCode.ErrCode_Success);
         map.put(FineSDKCode.Key_ErrMsg, "注销成功");

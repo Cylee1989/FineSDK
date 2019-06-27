@@ -20,6 +20,9 @@ allprojects {
         google()
         jcenter()
     }
+    task allTask() {
+        println "FineSDK-"+project.getProjectDir()
+    }
 }
 
 task clean(type: Delete) {
