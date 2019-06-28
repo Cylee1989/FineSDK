@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/xml"
 	"flag"
 	"fmt"
@@ -9,36 +10,18 @@ import (
 	"strings"
 )
 
-// XMLResources XML中resources数组
-type XMLResources struct {
-	XMLName xml.Name    `xml:"resources"`
-	Styles  []XMLStyle  `xml:"style"`
-	Strings []XMLString `xml:"string"`
-}
-
-// XMLString resources数组中的string数组
-type XMLString struct {
-	XMLName   xml.Name `xml:"string"`
-	Name      string   `xml:"name,attr"`
-	InnerText string   `xml:",innerxml"`
-}
-
-// XMLStyle resources数组中的style数组
-type XMLStyle struct {
-	XMLName   xml.Name `xml:"style"`
-	Name      string   `xml:"name,attr"`
-	Parent    string   `xml:"parent,attr,omitempty"`
-	InnerText string   `xml:",innerxml"`
+// TXMLData XML属性
+type TXMLData struct {
+	Data  string
+	Names map[string]bool
 }
 
 // TService 服务
 type TService struct {
-	MainPath     string               // 主XML文件路径
-	LinkPaths    string               // 依赖XML文件路径
-	OutputPath   string               // 导出XML文件路径
-	XMLName      xml.Name             // XML名称
-	mapXMLStyle  map[string]XMLStyle  // XML Style属性
-	mapXMLString map[string]XMLString // XML String属性
+	MainPath   string    // 主XML文件路径
+	LinkPaths  string    // 依赖XML文件路径
+	OutputPath string    // 导出XML文件路径
+	XMLData    *TXMLData // XML Style属性
 }
 
 func main() {
@@ -56,11 +39,10 @@ func main() {
 	}
 
 	service := &TService{
-		MainPath:     *mainPath,
-		LinkPaths:    *linkPaths,
-		OutputPath:   *outputPath,
-		mapXMLStyle:  make(map[string]XMLStyle),
-		mapXMLString: make(map[string]XMLString),
+		MainPath:   *mainPath,
+		LinkPaths:  *linkPaths,
+		OutputPath: *outputPath,
+		XMLData:    &TXMLData{Data: "", Names: make(map[string]bool)},
 	}
 	service.loadXMLFile()
 }
@@ -72,74 +54,71 @@ func (service *TService) loadXMLFile() {
 	for index := 0; index < len(files); index++ {
 		service.saveXMLFileData(files[index])
 	}
-	service.mergeXMLFile()
+	service.makeXML()
 }
 
 // 保存XML文件数据
 func (service *TService) saveXMLFileData(path string) {
-	if path != "" {
-		temp := service.parseXMLFile(path)
-		service.XMLName = temp.XMLName
-		for _, style := range temp.Styles {
-			if service.mapXMLStyle[style.Name].Name == "" {
-				service.mapXMLStyle[style.Name] = style
-			}
-		}
-		for _, str := range temp.Strings {
-			if service.mapXMLString[str.Name].Name == "" {
-				service.mapXMLString[str.Name] = str
-			}
-		}
-	}
-}
-
-// 解析XML文件
-func (service *TService) parseXMLFile(filePath string) XMLResources {
-	rs := XMLResources{}
-
-	fi, err := os.Open(filePath)
-	if err != nil {
-		return rs
-	}
-	defer fi.Close()
-
-	fd, err := ioutil.ReadAll(fi)
-	if err != nil {
-		return rs
-	}
-
-	xml.Unmarshal([]byte(fd), &rs)
-	return rs
-}
-
-// 合并XML文件
-func (service *TService) mergeXMLFile() {
-	xmlRes := XMLResources{
-		XMLName: service.XMLName,
-		Styles:  make([]XMLStyle, len(service.mapXMLStyle)),
-		Strings: make([]XMLString, len(service.mapXMLString)),
-	}
-
-	count := 0
-	for _, style := range service.mapXMLStyle {
-		xmlRes.Styles[count] = style
-		count++
-	}
-	count = 0
-	for _, str := range service.mapXMLString {
-		xmlRes.Strings[count] = str
-		count++
-	}
-	service.exportXMLFile(xmlRes)
-}
-
-// 导出XML文件
-func (service *TService) exportXMLFile(res XMLResources) {
-	b, err := xml.MarshalIndent(res, "  ", "    ")
+	content, err := ioutil.ReadFile(path)
 	if err != nil {
 		return
 	}
 
+	isSaveData := false
+	isHasContent := false
+	decoder := xml.NewDecoder(bytes.NewBuffer(content))
+	for t, err := decoder.Token(); err == nil; t, err = decoder.Token() {
+		switch token := t.(type) {
+		case xml.StartElement:
+			tokenNameLocal := token.Name.Local
+			if tokenNameLocal == "style" || tokenNameLocal == "string" {
+				for _, attr := range token.Attr {
+					value := attr.Value
+					if attr.Name.Local == "name" && !service.XMLData.Names[value] {
+						service.XMLData.Names[value] = true
+						isSaveData = true
+					}
+				}
+			}
+			if isSaveData {
+				service.XMLData.Data += "\n<" + tokenNameLocal
+				for _, attr := range token.Attr {
+					service.XMLData.Data += " " + attr.Name.Local + "=\"" + attr.Value + "\""
+				}
+				service.XMLData.Data += ">"
+			}
+		case xml.EndElement:
+			tokenNameLocal := token.Name.Local
+			if isSaveData {
+				if tokenNameLocal == "style" || tokenNameLocal == "string" {
+					if isHasContent && tokenNameLocal != "string" {
+						service.XMLData.Data += "\n"
+						isHasContent = false
+					}
+					isSaveData = false
+				}
+				service.XMLData.Data += "</" + tokenNameLocal + ">"
+			}
+		case xml.CharData:
+			if isSaveData {
+				content := string([]byte(token))
+				if strings.TrimSpace(content) != "" {
+					service.XMLData.Data += content
+					isHasContent = true
+				}
+			}
+		}
+	}
+}
+
+func (service *TService) makeXML() {
+	content := "<resources>"
+	content += service.XMLData.Data
+	content += "\n</resources>"
+	service.saveNewXML(content)
+}
+
+func (service *TService) saveNewXML(content string) {
 	fileName := service.OutputPath
 	os.Remove(fileName)
 	f, err := os.OpenFile(fileName, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0644)
@@ -148,6 +127,6 @@ func (service *TService) exportXMLFile(res XMLResources) {
 	}
 	defer f.Close()
 	f.Write([]byte(xml.Header))
-	f.Write(b)
-	fmt.Println("Merge ResXML Success!")
+	f.Write([]byte(content))
+	fmt.Println("Merge ManifestXML Success!")
 }

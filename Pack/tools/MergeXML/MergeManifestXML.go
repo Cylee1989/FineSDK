@@ -249,6 +249,7 @@ func (service *TService) saveNewXML(content string) {
 		return
 	}
 	defer f.Close()
+	f.Write([]byte(xml.Header))
 	f.Write([]byte(content))
 	fmt.Println("Merge ManifestXML Success!")
 }
