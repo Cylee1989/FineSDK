@@ -73,19 +73,19 @@ gameConfigPath=$(cd $gameConfigPath; pwd)
 toolPath="$curPath/bin"
 chmod +x "$toolPath/aapt" "$toolPath/apktool" "$toolPath/dx" "$toolPath/aidl" "$toolPath/zipalign" 
 androidJar="$toolPath/android/android-26.jar"
-mergeXMLToolsPath="$curPath/MergeXML"
+goToolsPath="$curPath/Go"
 
 keystore=
-if [ -f $gameConfigPath/$platform/fine.ini -a -f $gameConfigPath/$platform/fine.store ]; then
-	chmod a+x $gameConfigPath/$platform/fine.ini
-	source $gameConfigPath/$platform/fine.ini
+if [ -f $gameConfigPath/$platform/fine.store.ini -a -f $gameConfigPath/$platform/fine.store ]; then
+	chmod a+x $gameConfigPath/$platform/fine.store.ini
+	source $gameConfigPath/$platform/fine.store.ini
 	keystore=$gameConfigPath/$platform/fine.store
-elif [ -f $gameConfigPath/fine.ini -a -f $gameConfigPath/fine.store ]; then
-	chmod a+x $gameConfigPath/fine.ini
-	source $gameConfigPath/fine.ini
+elif [ -f $gameConfigPath/fine.store.ini -a -f $gameConfigPath/fine.store ]; then
+	chmod a+x $gameConfigPath/fine.store.ini
+	source $gameConfigPath/fine.store.ini
 	keystore=$gameConfigPath/fine.store
 else
-	echo 不存在fine.ini 或 fine.store
+	echo 不存在fine.store.ini 或 fine.store
 	exit 1
 fi
 
@@ -237,9 +237,9 @@ if [ ! -d "$merge_res/values" ];then
 	mkdir "$merge_res/values"
 fi
 
-$mergeXMLToolsPath/MergeResXML -m "$buildDir_apk/res/values/strings.xml" -l "$stringsXMLFile" -o "$merge_res/values/strings.xml"
-$mergeXMLToolsPath/MergeResXML -m "$buildDir_apk/res/values/styles.xml" -l "$stylesXMLFile" -o "$merge_res/values/styles.xml"
-$mergeXMLToolsPath/MergeManifestXML -m "$buildDir_apk/AndroidManifest.xml" -l "$manifestXMLFile" -o "$buildDir_merge/AndroidManifest.xml"
+$goToolsPath/MergeResXML -m "$buildDir_apk/res/values/strings.xml" -l "$stringsXMLFile" -o "$merge_res/values/strings.xml"
+$goToolsPath/MergeResXML -m "$buildDir_apk/res/values/styles.xml" -l "$stylesXMLFile" -o "$merge_res/values/styles.xml"
+$goToolsPath/MergeManifestXML -m "$buildDir_apk/AndroidManifest.xml" -l "$manifestXMLFile" -o "$buildDir_merge/AndroidManifest.xml"
 
 $toolPath/aapt package -f -m -J $merge_src -S $merge_res -M $buildDir_merge/AndroidManifest.xml -I $androidJar
 

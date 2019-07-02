@@ -1,6 +1,5 @@
 package com.fine.sdk.dispatcher;
 
-import android.app.Application;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -14,7 +13,7 @@ import com.xiaomi.gamecenter.sdk.entry.MiAppType;
  * Created by Cylee on 2019/4/24.
  */
 
-public class FineApplication extends Application {
+public class MiApplication extends FineApplication {
 
     @Override
     public void onCreate() {
@@ -32,7 +31,7 @@ public class FineApplication extends Application {
             appInfo.setAppId(appId);
             appInfo.setAppKey(appKey);
             appInfo.setAppType(MiAppType.online);
-            MiCommplatform.Init(FineApplication.this, appInfo);
+            MiCommplatform.Init(MiApplication.this, appInfo);
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }

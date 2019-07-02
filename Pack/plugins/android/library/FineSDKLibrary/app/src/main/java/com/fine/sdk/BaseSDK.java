@@ -1,6 +1,7 @@
 package com.fine.sdk;
 
 import com.fine.ndk.NDKHelper;
+import com.fine.sdk.tools.FineConfig;
 import com.fine.sdk.tools.FineLog;
 
 import android.app.Activity;
@@ -24,7 +25,6 @@ public class BaseSDK implements InterfaceActivity, InterfaceFunc {
     public void onCreate(Activity activity) {
         // TODO Auto-generated method stub
         this.gameActivity = activity;
-        FineLog.setDebug(true);
         NDKHelper.init(this, activity);
     }
 
