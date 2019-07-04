@@ -1,7 +1,8 @@
 package com.fine.sdk;
 
 import com.fine.ndk.NDKHelper;
-import com.fine.sdk.tools.FineConfig;
+import com.fine.sdk.activity.FineLogoActivity;
+import com.fine.sdk.constant.FineSDKCode;
 import com.fine.sdk.tools.FineLog;
 
 import android.app.Activity;
@@ -11,6 +12,8 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
+
+import java.util.Map;
 
 public class BaseSDK implements InterfaceActivity, InterfaceFunc {
 
@@ -108,6 +111,19 @@ public class BaseSDK implements InterfaceActivity, InterfaceFunc {
 
     public void receiveFromNative(String str) {
         FineLog.d(TAG, "receiveFromNative:" + str);
+    }
+
+    public void sendToNative(Map<String, Object> map) {
+        String action = (String) map.get(FineSDKCode.Key_Action);
+        if (action == FineSDKCode.Action_Init) {
+            String code = (String) map.get(FineSDKCode.Key_ErrCode);
+            if (code == FineSDKCode.ErrCode_Success) {
+                Intent intent = new Intent(gameActivity, FineLogoActivity.class);
+                gameActivity.startActivity(intent);
+            }
+        }
+
+        NDKHelper.sendToNative(map);
     }
 
     @Override

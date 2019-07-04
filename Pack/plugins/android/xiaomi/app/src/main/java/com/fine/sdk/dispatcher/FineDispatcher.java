@@ -32,7 +32,7 @@ public class FineDispatcher extends BaseSDK implements InterfaceFunc {
         map.put(FineSDKCode.Key_Action, FineSDKCode.Action_Init);
         map.put(FineSDKCode.Key_ErrCode, FineSDKCode.ErrCode_Success);
         map.put(FineSDKCode.Key_ErrMsg, "初始化成功");
-        NDKHelper.sendToNative(map);
+        sendToNative(map);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class FineDispatcher extends BaseSDK implements InterfaceFunc {
                         map.put(FineSDKCode.Key_ErrMsg, "登录失败(错误码-" + i + ")");
                         break;
                 }
-                NDKHelper.sendToNative(map);
+                sendToNative(map);
             }
         });
     }
@@ -106,7 +106,7 @@ public class FineDispatcher extends BaseSDK implements InterfaceFunc {
                             map.put(FineSDKCode.Key_ErrMsg, "充值失败");
                             break;
                     }
-                    NDKHelper.sendToNative(map);
+                    sendToNative(map);
                 }
             });
         } catch (JSONException e) {
@@ -120,7 +120,7 @@ public class FineDispatcher extends BaseSDK implements InterfaceFunc {
         map.put(FineSDKCode.Key_Action, FineSDKCode.Action_Logout);
         map.put(FineSDKCode.Key_ErrCode, FineSDKCode.ErrCode_Success);
         map.put(FineSDKCode.Key_ErrMsg, "注销成功");
-        NDKHelper.sendToNative(map);
+        sendToNative(map);
     }
 
     @Override

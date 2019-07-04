@@ -3,16 +3,11 @@ package com.fine.sdk.dispatcher;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.widget.Toast;
 
-import com.fine.ndk.NDKHelper;
 import com.fine.sdk.BaseSDK;
-import com.fine.sdk.InterfaceFunc;
 import com.fine.sdk.constant.FineSDKCode;
 
 public class FineDispatcherTest extends BaseSDK {
@@ -23,7 +18,7 @@ public class FineDispatcherTest extends BaseSDK {
         map.put(FineSDKCode.Key_Action, FineSDKCode.Action_Init);
         map.put(FineSDKCode.Key_ErrCode, FineSDKCode.ErrCode_Success);
         map.put(FineSDKCode.Key_ErrMsg, "初始化成功");
-        NDKHelper.sendToNative(map);
+        sendToNative(map);
         Toast.makeText(gameActivity, "初始化成功", Toast.LENGTH_SHORT).show();
     }
 
@@ -37,7 +32,7 @@ public class FineDispatcherTest extends BaseSDK {
                 map.put(FineSDKCode.Key_ErrCode, FineSDKCode.ErrCode_Success);
                 map.put(FineSDKCode.Key_ErrMsg, "登录成功");
                 map.put("Token", param);
-                NDKHelper.sendToNative(map);
+                sendToNative(map);
                 Toast.makeText(gameActivity, "登录成功", Toast.LENGTH_SHORT).show();
             }
         });
@@ -54,7 +49,7 @@ public class FineDispatcherTest extends BaseSDK {
                 map.put(FineSDKCode.Key_ErrCode, FineSDKCode.ErrCode_Success);
                 map.put(FineSDKCode.Key_ErrMsg, "充值成功");
                 map.put("Money", "10.00");
-                NDKHelper.sendToNative(map);
+                sendToNative(map);
                 Toast.makeText(gameActivity, "充值成功", Toast.LENGTH_SHORT).show();
             }
 
@@ -65,7 +60,7 @@ public class FineDispatcherTest extends BaseSDK {
                 map.put(FineSDKCode.Key_ErrCode, FineSDKCode.ErrCode_Failed);
                 map.put(FineSDKCode.Key_ErrMsg, "充值失败");
                 map.put("Money", "10.00");
-                NDKHelper.sendToNative(map);
+                sendToNative(map);
                 Toast.makeText(gameActivity, "充值失败", Toast.LENGTH_SHORT).show();
             }
         });
@@ -77,7 +72,7 @@ public class FineDispatcherTest extends BaseSDK {
         map.put(FineSDKCode.Key_Action, FineSDKCode.Action_Logout);
         map.put(FineSDKCode.Key_ErrCode, FineSDKCode.ErrCode_Success);
         map.put(FineSDKCode.Key_ErrMsg, "注销成功");
-        NDKHelper.sendToNative(map);
+        sendToNative(map);
         Toast.makeText(gameActivity, "注销成功", Toast.LENGTH_SHORT).show();
     }
 
