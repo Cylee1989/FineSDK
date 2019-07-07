@@ -97,6 +97,24 @@ else
 	exit 1
 fi
 
+configXMLPath=
+if [ -f $gameConfigPath/$platform/fine_config.xml ]; then
+	configXMLPath=$gameConfigPath/$platform/fine_config.xml
+else
+	echo 不存在fine_config.xml
+	exit 1
+fi
+
+iconPath=
+if [ -f $gameConfigPath/$platform/fine_icon.png ]; then
+	iconPath=$gameConfigPath/$platform/fine_icon.png
+elif [ -f $gameConfigPath/fine_icon.png ]; then
+	iconPath=$gameConfigPath/fine_icon.png
+else
+	echo 不存在fine_icon.png
+	exit 1
+fi
+
 echo "sdkProjPath:"$sdkProjPath
 echo "gameConfigPath:"$gameConfigPath
 echo "keystore:"$keystore
@@ -105,6 +123,8 @@ echo "keyalias:"$keyalias
 echo "aliaspass:"$aliaspass
 echo "versionName:"$versionName
 echo "versionCode:"$versionCode
+echo "configXMLPath:"$configXMLPath
+echo "iconPath:"$iconPath
 
 echo "----------------------------------------------------------------------------------------------------"
 echo "生成build环境目录"
@@ -153,6 +173,9 @@ merge_lib="$buildDir_merge/lib"
 mkdir $merge_lib
 merge_src="$buildDir_merge/src"
 mkdir $merge_src
+merge_assets="$buildDir_merge/assets"
+merge_assets_FineSDK="$merge_assets/FineSDK"
+mkdir $merge_assets $merge_assets_FineSDK
 for(( i=${#allTaskPath[@]};i>0;i--)) do
 	taskPath=${allTaskPath[i]}
 	# copy libs资源
@@ -194,6 +217,10 @@ for(( i=${#allTaskPath[@]};i>0;i--)) do
 	# 编译依赖工程R.java文件
 	$toolPath/aapt package -f -m -J $merge_src -S $taskPath/src/main/res -M $taskPath/src/main/AndroidManifest.xml -I $androidJar
 done
+
+cp -rf $gameConfigPath/fine_app.json $merge_assets_FineSDK
+cp -rf $gameConfigPath/$platform/fine_platform.json $merge_assets_FineSDK
+cp -rf $gameConfigPath/$platform/logo $merge_assets_FineSDK
 
 cp -rf $buildDir_apk/res/ $merge_res
 
@@ -240,7 +267,7 @@ fi
 $goToolsPath/MergeResXML -m "$buildDir_apk/res/values/strings.xml" -l "$stringsXMLFile" -o "$merge_res/values/strings.xml"
 $goToolsPath/MergeResXML -m "$buildDir_apk/res/values/styles.xml" -l "$stylesXMLFile" -o "$merge_res/values/styles.xml"
 $goToolsPath/MergeManifestXML -m "$buildDir_apk/AndroidManifest.xml" -l "$manifestXMLFile" -o "$buildDir_merge/AndroidManifest.xml"
-
+$goToolsPath/ReplaceXMLAttr -c $configXMLPath -i $iconPath -m "$buildDir_apk/AndroidManifest.xml" -r "$buildDir_merge/AndroidManifest.xml" -s "$merge_res"
 $toolPath/aapt package -f -m -J $merge_src -S $merge_res -M $buildDir_merge/AndroidManifest.xml -I $androidJar
 
 echo "----------------------------------------------------------------------------------------------------"
@@ -311,6 +338,7 @@ rm -rf $merge_dex
 
 echo "----------------------------------------------------------------------------------------------------"
 echo "覆盖资源"
+cp -rf $merge_assets $buildDir_apk
 cp -rf $merge_res $buildDir_apk
 cp -rf $merge_lib $buildDir_apk
 cp -rf $merge_smali $buildDir_apk

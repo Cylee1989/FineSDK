@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FineSDK>
+  	<AppName>Fine小米</AppName>
+  	<PackageName>com.fine.sdk.xiaomi</PackageName>
+  	<ScreenOrientation>landscape</ScreenOrientation>
+  	<LaunchMode>singleTask</LaunchMode>
+  	<LaunchIntent>
+	    <intent-filter>
+	        <action android:name="android.intent.action.MAIN" />
+	        <category android:name="android.intent.category.DEFAULT" />
+	    </intent-filter>
+	</LaunchIntent>
+	<FixedScreenOrientationList></FixedScreenOrientationList>
+</FineSDK>
