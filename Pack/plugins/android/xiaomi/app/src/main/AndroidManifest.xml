@@ -50,7 +50,7 @@
             android:name="com.xiaomi.gamecenter.push.GamePushService"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.fine.sdk.demo.unity.MI_GAME_PUSH" />
+                <action android:name="__FineSDK_PackageName__.MI_GAME_PUSH" />
             </intent-filter>
         </service>
 
@@ -64,7 +64,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.fine.sdk.demo.unity.fileprovider"
+            android:authorities="__FineSDK_PackageName__.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

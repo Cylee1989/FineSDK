@@ -33,7 +33,7 @@ type TokenInfo struct {
 }
 
 func main() {
-	mainPath := flag.String("m", "", "The main XML file Path.")
+	mainPath := flag.String("m", "", "This is the main XML file Path.")
 	linkPaths := flag.String("l", "", "This is the link XML files Path. Multiple files must be separated by commas.")
 	outputPath := flag.String("o", "", "This is the output XML file Path.")
 	flag.Parse()

@@ -30,6 +30,7 @@ type TConfig struct {
 	XMLName                    xml.Name       `xml:"FineSDK"`
 	AppName                    string         `xml:"AppName"`
 	PackageName                string         `xml:"PackageName"`
+	ApplicationName            string         `xml:"ApplicationName"`
 	ScreenOrientation          string         `xml:"ScreenOrientation"`
 	LaunchMode                 string         `xml:"LaunchMode"`
 	LaunchIntent               *TLaunchIntent `xml:"LaunchIntent"`
@@ -49,8 +50,8 @@ type TManifestXMLData struct {
 	SupportsScreensAttr   string
 	UsesSdkAttr           string
 	UsesConfigurationAttr string
-	LaunchActivityName    string
 	IconName              string
+	LaunchActivityName    string
 	InApplication         map[string]*TokenInfo
 	OutApplication        map[string]*TokenInfo
 }
@@ -128,9 +129,11 @@ func (service *TService) readLaunchActivityName() {
 			for _, attr := range token.Attr {
 				attrName := attr.Name.Local
 				attrValue := attr.Value
-				if tokenNameLocal == "application" && attrName == "icon" {
-					temp := strings.Split(attrValue, "/")
-					service.ManifestXMLData.IconName = temp[1]
+				if tokenNameLocal == "application" {
+					if attrName == "icon" {
+						temp := strings.Split(attrValue, "/")
+						service.ManifestXMLData.IconName = temp[1]
+					}
 				}
 				if tokenNameLocal == "activity" && attrName == "name" {
 					actName = attrValue
@@ -166,8 +169,6 @@ func (service *TService) replaceManifestXMLMainInfo() {
 				attrSpace := attr.Name.Space
 				attrName := attr.Name.Local
 				attrValue := attr.Value
-
-				attr := "android:" + attrName + "=" + "\"" + attrValue + "\" "
 				if tokenNameLocal == "manifest" {
 					space := attrSpace + ":"
 					if attrSpace == "" || attrSpace == "http://schemas.android.com/apk/res/android" {
@@ -177,9 +178,18 @@ func (service *TService) replaceManifestXMLMainInfo() {
 						attrValue = service.ConfigXML.PackageName
 					}
 					service.ManifestXMLData.ManifestAttr += space + attrName + "=" + "\"" + attrValue + "\" "
-				} else if tokenNameLocal == "application" {
-					service.ManifestXMLData.ApplicationAttr += attr
-				} else if tokenNameLocal == "supports-screens" {
+				}
+
+				attr := "android:" + attrName + "=" + "\"" + attrValue + "\" "
+				if tokenNameLocal == "application" {
+					if service.ConfigXML.ApplicationName != "" && attrName == "name" {
+						service.ManifestXMLData.ApplicationAttr += "android:name=\"" + service.ConfigXML.ApplicationName + "\" "
+					} else {
+						service.ManifestXMLData.ApplicationAttr += attr
+					}
+				}
+
+				if tokenNameLocal == "supports-screens" {
 					service.ManifestXMLData.SupportsScreensAttr += attr
 				} else if tokenNameLocal == "uses-sdk" {
 					service.ManifestXMLData.UsesSdkAttr += attr
@@ -370,6 +380,8 @@ func (service *TService) makeManifestXML() {
 
 	content += "</application>\n"
 	content += "</manifest>\n"
+
+	content = strings.Replace(content, "__FineSDK_PackageName__", service.ConfigXML.PackageName, -1)
 	service.saveNewXML(service.ReplaceManifestXMLPath, content)
 }
 

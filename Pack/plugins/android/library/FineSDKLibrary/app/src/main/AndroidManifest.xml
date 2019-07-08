@@ -10,7 +10,7 @@
         <activity
             android:name="com.fine.sdk.activity.FineLogoActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="behind"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
     </application>
 </manifest>
