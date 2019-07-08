@@ -4,6 +4,7 @@ import com.fine.ndk.NDKHelper;
 import com.fine.sdk.activity.FineLogoActivity;
 import com.fine.sdk.constant.FineSDKCode;
 import com.fine.sdk.tools.FineLog;
+import com.fine.sdk.tools.FineTools;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -27,6 +28,7 @@ public class BaseSDK implements InterfaceActivity, InterfaceFunc {
     @Override
     public void onCreate(Activity activity) {
         // TODO Auto-generated method stub
+        FineLog.d("BaseSDK", "onCreate");
         this.gameActivity = activity;
         NDKHelper.init(this, activity);
     }
@@ -34,43 +36,43 @@ public class BaseSDK implements InterfaceActivity, InterfaceFunc {
     @Override
     public void onStart() {
         // TODO Auto-generated method stub
-
+        FineLog.d("BaseSDK", "onStart");
     }
 
     @Override
     public void onRestart() {
         // TODO Auto-generated method stub
-
+        FineLog.d("BaseSDK", "onRestart");
     }
 
     @Override
     public void onStop() {
         // TODO Auto-generated method stub
-
+        FineLog.d("BaseSDK", "onStop");
     }
 
     @Override
     public void onPause() {
         // TODO Auto-generated method stub
-
+        FineLog.d("BaseSDK", "onPause");
     }
 
     @Override
     public void onResume() {
         // TODO Auto-generated method stub
-
+        FineLog.d("BaseSDK", "onResume");
     }
 
     @Override
     public void onLowMemory() {
         // TODO Auto-generated method stub
-
+        FineLog.d("BaseSDK", "onLowMemory");
     }
 
     @Override
     public void onDestroy() {
         // TODO Auto-generated method stub
-
+        FineLog.d("BaseSDK", "onDestroy");
     }
 
     @Override
@@ -82,31 +84,37 @@ public class BaseSDK implements InterfaceActivity, InterfaceFunc {
     @Override
     public void onNewIntent(Intent intent) {
         // TODO Auto-generated method stub
-
+        FineLog.d("BaseSDK", "onNewIntent");
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         // TODO Auto-generated method stub
-
+        FineLog.d("BaseSDK", "onActivityResult");
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         // TODO Auto-generated method stub
-
+        FineLog.d("BaseSDK", "onConfigurationChanged");
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         // TODO Auto-generated method stub
-
+        FineLog.d("BaseSDK", "onSaveInstanceState");
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         // TODO Auto-generated method stub
+        FineLog.d("BaseSDK", "onRequestPermissionsResult");
+    }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        // TODO Auto-generated method stub
+        FineLog.d("BaseSDK", "onWindowFocusChanged");
     }
 
     public void receiveFromNative(String str) {
@@ -118,8 +126,12 @@ public class BaseSDK implements InterfaceActivity, InterfaceFunc {
         if (action == FineSDKCode.Action_Init) {
             String code = (String) map.get(FineSDKCode.Key_ErrCode);
             if (code == FineSDKCode.ErrCode_Success) {
-                Intent intent = new Intent(gameActivity, FineLogoActivity.class);
-                gameActivity.startActivity(intent);
+                boolean isExistLogo = FineTools.isFileExistInAssets(gameActivity, "FineSDK", "logo");
+                if (isExistLogo) {
+                    Intent intent = new Intent(gameActivity, FineLogoActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    gameActivity.startActivity(intent);
+                }
             }
         }
 

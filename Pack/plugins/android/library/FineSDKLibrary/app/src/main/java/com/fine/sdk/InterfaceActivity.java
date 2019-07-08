@@ -36,4 +36,6 @@ public interface InterfaceActivity {
 
 	public abstract void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults);
 
+	public abstract void onWindowFocusChanged(boolean hasFocus);
+
 }

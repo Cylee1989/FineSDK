@@ -204,7 +204,6 @@ public class FineLogoActivity extends Activity {
             });
 
             videoPlayer.reset();
-            videoPlayer.setDataSource(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getLength());
             videoPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer player) {
@@ -229,6 +228,7 @@ public class FineLogoActivity extends Activity {
                     showLogoView();
                 }
             });
+            videoPlayer.setDataSource(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getLength());
             index++;
         } catch (Exception e) {
             FineLog.d("FineLogoActivity", "Not found " + index + ".mp4");
