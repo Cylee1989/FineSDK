@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FinePushSDK</string>
+    <string name="local_notification">本地推送</string>
+    <string name="local_notification_clear">清除推送</string>
+    <string name="local_notification_clearAll">清除全部推送</string>
+    <string name="remote_notification_register">注册远程推送</string>
+</resources>

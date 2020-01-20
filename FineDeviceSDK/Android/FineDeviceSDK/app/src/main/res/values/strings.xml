@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FineDeviceSDK</string>
+    <string name="device_info">获取设备信息</string>
+    <string name="device_screen">获取屏幕信息</string>
+</resources>

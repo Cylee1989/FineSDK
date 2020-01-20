@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6FE2C5F223D190DB00B50515 /* FinePushSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE2C5F023D190DB00B50515 /* FinePushSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FE2C60923D1948E00B50515 /* FinePushRSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2C5FA23D1948E00B50515 /* FinePushRSA.m */; };
+		6FE2C60A23D1948E00B50515 /* FinePushTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2C5FB23D1948E00B50515 /* FinePushTools.m */; };
+		6FE2C60B23D1948E00B50515 /* FinePushRSA.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE2C5FC23D1948E00B50515 /* FinePushRSA.h */; };
+		6FE2C60C23D1948E00B50515 /* FinePushTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE2C5FD23D1948E00B50515 /* FinePushTools.h */; };
+		6FE2C60D23D1948E00B50515 /* FinePushKeychainItemWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2C5FE23D1948E00B50515 /* FinePushKeychainItemWrapper.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6FE2C60E23D1948E00B50515 /* FinePushKeychainItemWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE2C5FF23D1948E00B50515 /* FinePushKeychainItemWrapper.h */; };
+		6FE2C60F23D1948E00B50515 /* FinePushLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2C60123D1948E00B50515 /* FinePushLocalNotification.m */; };
+		6FE2C61023D1948E00B50515 /* FinePushRemoteNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE2C60223D1948E00B50515 /* FinePushRemoteNotification.h */; };
+		6FE2C61123D1948E00B50515 /* FinePushLocalNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE2C60323D1948E00B50515 /* FinePushLocalNotification.h */; };
+		6FE2C61223D1948E00B50515 /* FinePushRemoteNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2C60423D1948E00B50515 /* FinePushRemoteNotification.m */; };
+		6FE2C61323D1948E00B50515 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2C60623D1948E00B50515 /* GCDAsyncUdpSocket.m */; };
+		6FE2C61423D1948E00B50515 /* GCDAsyncUdpSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE2C60723D1948E00B50515 /* GCDAsyncUdpSocket.h */; };
+		6FE2C61523D1948E00B50515 /* FinePushSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2C60823D1948E00B50515 /* FinePushSDK.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6FE2C5ED23D190DB00B50515 /* FinePushSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FinePushSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FE2C5F023D190DB00B50515 /* FinePushSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinePushSDK.h; sourceTree = "<group>"; };
+		6FE2C5F123D190DB00B50515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FE2C5FA23D1948E00B50515 /* FinePushRSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinePushRSA.m; sourceTree = "<group>"; };
+		6FE2C5FB23D1948E00B50515 /* FinePushTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinePushTools.m; sourceTree = "<group>"; };
+		6FE2C5FC23D1948E00B50515 /* FinePushRSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinePushRSA.h; sourceTree = "<group>"; };
+		6FE2C5FD23D1948E00B50515 /* FinePushTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinePushTools.h; sourceTree = "<group>"; };
+		6FE2C5FE23D1948E00B50515 /* FinePushKeychainItemWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FinePushKeychainItemWrapper.mm; sourceTree = "<group>"; };
+		6FE2C5FF23D1948E00B50515 /* FinePushKeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinePushKeychainItemWrapper.h; sourceTree = "<group>"; };
+		6FE2C60123D1948E00B50515 /* FinePushLocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinePushLocalNotification.m; sourceTree = "<group>"; };
+		6FE2C60223D1948E00B50515 /* FinePushRemoteNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinePushRemoteNotification.h; sourceTree = "<group>"; };
+		6FE2C60323D1948E00B50515 /* FinePushLocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinePushLocalNotification.h; sourceTree = "<group>"; };
+		6FE2C60423D1948E00B50515 /* FinePushRemoteNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinePushRemoteNotification.m; sourceTree = "<group>"; };
+		6FE2C60623D1948E00B50515 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		6FE2C60723D1948E00B50515 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		6FE2C60823D1948E00B50515 /* FinePushSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinePushSDK.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6FE2C5E923D190DB00B50515 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6FE2C5E323D190DB00B50515 = {
+			isa = PBXGroup;
+			children = (
+				6FE2C5EF23D190DB00B50515 /* FinePushSDK */,
+				6FE2C5EE23D190DB00B50515 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6FE2C5EE23D190DB00B50515 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6FE2C5ED23D190DB00B50515 /* FinePushSDK.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6FE2C5EF23D190DB00B50515 /* FinePushSDK */ = {
+			isa = PBXGroup;
+			children = (
+				6FE2C5F823D1948E00B50515 /* libs */,
+				6FE2C5F023D190DB00B50515 /* FinePushSDK.h */,
+				6FE2C60823D1948E00B50515 /* FinePushSDK.m */,
+				6FE2C5F123D190DB00B50515 /* Info.plist */,
+			);
+			path = FinePushSDK;
+			sourceTree = "<group>";
+		};
+		6FE2C5F823D1948E00B50515 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				6FE2C5F923D1948E00B50515 /* tools */,
+				6FE2C60023D1948E00B50515 /* notification */,
+				6FE2C60523D1948E00B50515 /* GCD */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		6FE2C5F923D1948E00B50515 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				6FE2C5FC23D1948E00B50515 /* FinePushRSA.h */,
+				6FE2C5FA23D1948E00B50515 /* FinePushRSA.m */,
+				6FE2C5FD23D1948E00B50515 /* FinePushTools.h */,
+				6FE2C5FB23D1948E00B50515 /* FinePushTools.m */,
+				6FE2C5FF23D1948E00B50515 /* FinePushKeychainItemWrapper.h */,
+				6FE2C5FE23D1948E00B50515 /* FinePushKeychainItemWrapper.mm */,
+			);
+			path = tools;
+			sourceTree = "<group>";
+		};
+		6FE2C60023D1948E00B50515 /* notification */ = {
+			isa = PBXGroup;
+			children = (
+				6FE2C60323D1948E00B50515 /* FinePushLocalNotification.h */,
+				6FE2C60123D1948E00B50515 /* FinePushLocalNotification.m */,
+				6FE2C60223D1948E00B50515 /* FinePushRemoteNotification.h */,
+				6FE2C60423D1948E00B50515 /* FinePushRemoteNotification.m */,
+			);
+			path = notification;
+			sourceTree = "<group>";
+		};
+		6FE2C60523D1948E00B50515 /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				6FE2C60623D1948E00B50515 /* GCDAsyncUdpSocket.m */,
+				6FE2C60723D1948E00B50515 /* GCDAsyncUdpSocket.h */,
+			);
+			path = GCD;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6FE2C5EA23D190DB00B50515 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FE2C61023D1948E00B50515 /* FinePushRemoteNotification.h in Headers */,
+				6FE2C61123D1948E00B50515 /* FinePushLocalNotification.h in Headers */,
+				6FE2C5F223D190DB00B50515 /* FinePushSDK.h in Headers */,
+				6FE2C61423D1948E00B50515 /* GCDAsyncUdpSocket.h in Headers */,
+				6FE2C60E23D1948E00B50515 /* FinePushKeychainItemWrapper.h in Headers */,
+				6FE2C60B23D1948E00B50515 /* FinePushRSA.h in Headers */,
+				6FE2C60C23D1948E00B50515 /* FinePushTools.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6FE2C5EC23D190DB00B50515 /* FinePushSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FE2C5F523D190DB00B50515 /* Build configuration list for PBXNativeTarget "FinePushSDK" */;
+			buildPhases = (
+				6FE2C5E823D190DB00B50515 /* Sources */,
+				6FE2C5E923D190DB00B50515 /* Frameworks */,
+				6FE2C5EA23D190DB00B50515 /* Headers */,
+				6FE2C5EB23D190DB00B50515 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FinePushSDK;
+			productName = FinePushSDK;
+			productReference = 6FE2C5ED23D190DB00B50515 /* FinePushSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6FE2C5E423D190DB00B50515 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = Fine;
+				TargetAttributes = {
+					6FE2C5EC23D190DB00B50515 = {
+						CreatedOnToolsVersion = 9.4;
+					};
+				};
+			};
+			buildConfigurationList = 6FE2C5E723D190DB00B50515 /* Build configuration list for PBXProject "FinePushSDK" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6FE2C5E323D190DB00B50515;
+			productRefGroup = 6FE2C5EE23D190DB00B50515 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6FE2C5EC23D190DB00B50515 /* FinePushSDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6FE2C5EB23D190DB00B50515 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6FE2C5E823D190DB00B50515 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FE2C61223D1948E00B50515 /* FinePushRemoteNotification.m in Sources */,
+				6FE2C61523D1948E00B50515 /* FinePushSDK.m in Sources */,
+				6FE2C60D23D1948E00B50515 /* FinePushKeychainItemWrapper.mm in Sources */,
+				6FE2C60923D1948E00B50515 /* FinePushRSA.m in Sources */,
+				6FE2C60F23D1948E00B50515 /* FinePushLocalNotification.m in Sources */,
+				6FE2C61323D1948E00B50515 /* GCDAsyncUdpSocket.m in Sources */,
+				6FE2C60A23D1948E00B50515 /* FinePushTools.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6FE2C5F323D190DB00B50515 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6FE2C5F423D190DB00B50515 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6FE2C5F623D190DB00B50515 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FinePushSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fine.sdk.push.FinePushSDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6FE2C5F723D190DB00B50515 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FinePushSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fine.sdk.push.FinePushSDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6FE2C5E723D190DB00B50515 /* Build configuration list for PBXProject "FinePushSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FE2C5F323D190DB00B50515 /* Debug */,
+				6FE2C5F423D190DB00B50515 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6FE2C5F523D190DB00B50515 /* Build configuration list for PBXNativeTarget "FinePushSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FE2C5F623D190DB00B50515 /* Debug */,
+				6FE2C5F723D190DB00B50515 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6FE2C5E423D190DB00B50515 /* Project object */;
+}

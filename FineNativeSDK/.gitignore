@@ -1,0 +1,12 @@
+.DS_Store
+TAG/
+SDK/Android/FineSDK/libs
+SDK/Android/FineSDK/obj
+SDK/Android/FineSDKDemo/bin
+SDK/Android/FineSDKDemo/gen
+SDK/Android/FineSDKLibrary/bin
+SDK/Android/FineSDKLibrary/gen
+EngineDemo/unity3d/Build/Unity.ios/Libraries/libiPhone-lib.a
+Pack/apk
+Pack/tools/.build
+SDK/iOS/FineSDKDemo/FineSDKDemo.xcodeproj/project.xcworkspace/xcuserdata
