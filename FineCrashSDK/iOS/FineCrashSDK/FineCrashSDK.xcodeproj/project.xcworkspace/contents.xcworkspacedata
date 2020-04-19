@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:../FineCrashSDK/config"
+      name = "config">
+      <FileRef
+         location = "group:FTCrashConfig.h">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:../FineCrashSDK/FTCrashSDK.h">
+   </FileRef>
+   <FileRef
+      location = "group:../FineCrashSDK/FTCrashSDK.m">
+   </FileRef>
+   <FileRef
+      location = "group:../FineCrashSDK/FTCrashSDK.pch">
+   </FileRef>
+   <FileRef
+      location = "group:../FineCrashSDK/Info.plist">
+   </FileRef>
+   <Group
+      location = "group:../FineCrashSDK/report"
+      name = "report">
+      <FileRef
+         location = "group:FTCrashReport.h">
+      </FileRef>
+      <FileRef
+         location = "group:FTCrashReport.m">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:../FineCrashSDK/unity"
+      name = "unity">
+      <FileRef
+         location = "group:FTCrashUnityCallBack.h">
+      </FileRef>
+      <FileRef
+         location = "group:FTCrashUnityCallBack.mm">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:../FineCrashSDK/utils"
+      name = "utils">
+      <FileRef
+         location = "group:FTCrashReachability.m">
+      </FileRef>
+      <FileRef
+         location = "group:FTCrashUserDefaults.m">
+      </FileRef>
+      <FileRef
+         location = "group:FTCrashTimer.h">
+      </FileRef>
+      <FileRef
+         location = "group:FTCrashUtils.m">
+      </FileRef>
+      <FileRef
+         location = "group:FTCrashUserDefaults.h">
+      </FileRef>
+      <FileRef
+         location = "group:FTCrashReachability.h">
+      </FileRef>
+      <FileRef
+         location = "group:FTCrashUtils.h">
+      </FileRef>
+      <FileRef
+         location = "group:FTCrashTimer.m">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "self:FineCrashSDK.xcodeproj">
+   </FileRef>
+</Workspace>

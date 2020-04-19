@@ -1,0 +1,3 @@
+rootProject.name='FineCrashSDK'
+include ':app'
+include ':library'
